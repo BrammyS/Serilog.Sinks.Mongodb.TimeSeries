@@ -23,10 +23,27 @@ You will need to do the following to add Serilog.Sinks.Mongodb.TimeSeries as a s
 
 ```csharp
 var client = new MongoClient("mongodb://mongodb0.example.com:27017");
-var mongoDatabase = client.GetDatabase("logs");
+var mongoDatabase = client.GetDatabase("dbName");
 
 Log.Logger = new LoggerConfiguration()
                  .WriteTo.MongoDbTimeSeriesSink(mongoDatabase)
+                 .CreateLogger();
+```
+OR
+```csharp
+var client = new MongoClient("mongodb://mongodb0.example.com:27017");
+var mongoDatabase = client.GetDatabase("dbName");
+
+var batchingConfig = new PeriodicBatchingSinkOptions
+{
+    BatchSizeLimit = 250,
+    Period = TimeSpan.FromSeconds(20),
+    EagerlyEmitFirstEvent = true,
+    QueueLimit = 500
+};
+
+Log.Logger = new LoggerConfiguration()
+                 .WriteTo.MongoDbTimeSeriesSink(mongoDatabase, batchingConfig)
                  .CreateLogger();
 ```
 
