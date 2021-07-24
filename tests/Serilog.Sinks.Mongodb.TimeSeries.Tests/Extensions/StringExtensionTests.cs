@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
+using Serilog.Sinks.Mongodb.TimeSeries.Extensions;
 
-namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions.Tests.Extensions
+namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Extensions
 {
     [TestFixture]
     public class StringExtensionTests

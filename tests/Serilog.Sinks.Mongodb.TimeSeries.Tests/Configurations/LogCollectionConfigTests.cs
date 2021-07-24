@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Serilog.Sinks.Mongodb.TimeSeries.Configurations;
 using Serilog.Sinks.Mongodb.TimeSeries.Models;
 
-namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions.Tests.Configurations
+namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
 {
     [TestFixture]
     public class BaseDocumentCollectionConfiguratorTests

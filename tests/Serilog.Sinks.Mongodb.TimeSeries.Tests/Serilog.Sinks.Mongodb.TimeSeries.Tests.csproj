@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Serilog.Sinks.Mongodb.TimeSeries\Serilog.Sinks.Mongodb.TimeSeries.csproj" />
+      <ProjectReference Include="..\..\src\Serilog.Sinks.Mongodb.TimeSeries\Serilog.Sinks.Mongodb.TimeSeries.csproj" />
     </ItemGroup>
 
 </Project>
