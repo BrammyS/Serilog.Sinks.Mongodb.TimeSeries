@@ -9,13 +9,16 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
     internal static class LogEventLevelExtensions
     {
         /// <summary>
-        ///     Converts a <see cref="LogEventLevel"/> into a readable <see cref="string"/>.
+        ///     Converts a <see cref="LogEventLevel" /> into a readable <see cref="string" />.
         /// </summary>
-        /// <param name="level">The <see cref="LogEventLevel"/>.</param>
+        /// <param name="level">The <see cref="LogEventLevel" />.</param>
         /// <returns>
-        ///     The readable <see cref="string"/> containing the severity.
+        ///     The readable <see cref="string" /> containing the severity.
         /// </returns>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when no severity string was found for the current <see cref="LogEventLevel"/>.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        ///     Thrown when no severity string was found for the current
+        ///     <see cref="LogEventLevel" />.
+        /// </exception>
         internal static string ToSeverityString(this LogEventLevel level)
         {
             return level switch

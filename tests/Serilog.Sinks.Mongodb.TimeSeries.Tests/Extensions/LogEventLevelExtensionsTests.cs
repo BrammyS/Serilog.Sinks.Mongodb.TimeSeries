@@ -18,7 +18,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Extensions
         {
             // Act
             var result = level.ToSeverityString();
-            
+
             // Assert
             result.Should().Be(expected);
         }

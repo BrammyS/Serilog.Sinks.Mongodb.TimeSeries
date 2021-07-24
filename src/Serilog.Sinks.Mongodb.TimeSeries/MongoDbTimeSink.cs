@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
@@ -13,38 +12,34 @@ using Serilog.Sinks.PeriodicBatching;
 namespace Serilog.Sinks.Mongodb.TimeSeries
 {
     /// <summary>
-    ///     Saves batches of <see cref="LogEvent"/>s to the mongodb database.
+    ///     Saves batches of <see cref="LogEvent" />s to the mongodb database.
     /// </summary>
     internal class MongoDbTimeSink : IBatchedLogEventSink
     {
-        private readonly MongoDbTimeSeriesSinkConfig _config;
         private readonly IMongoCollection<LogDocument> _collection;
-        
+        private readonly MongoDbTimeSeriesSinkConfig _config;
+
         /// <summary>
         ///     Initializes a new <see cref="MongoDbTimeSink" />.
         /// </summary>
-        /// <param name="config">The <see cref="MongoDbTimeSeriesSinkConfig"/> that will be used to configure the Mongodb sink.</param>
+        /// <param name="config">The <see cref="MongoDbTimeSeriesSinkConfig" /> that will be used to configure the Mongodb sink.</param>
         internal MongoDbTimeSink(MongoDbTimeSeriesSinkConfig config)
         {
             _config = config;
 
-            if (!CollectionExists())
-            {
-                _config.Database.CreateCollection(_config.CollectionName, _config.Options);
-            }
+            if (!CollectionExists()) _config.Database.CreateCollection(_config.CollectionName, _config.Options);
 
             LogCollectionConfig.ConfigureCollection();
-            
+
             _collection = _config.Database.GetCollection<LogDocument>(_config.CollectionName);
         }
-        
+
         /// <inheritdoc />
         public async Task EmitBatchAsync(IEnumerable<LogEvent> batch)
         {
             var logs = new List<LogDocument>();
 
             foreach (var logEvent in batch.ToList())
-            {
                 logs.Add(new LogDocument
                 {
                     Exception = logEvent.Exception,
@@ -53,7 +48,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
                     Timestamp = logEvent.Timestamp.UtcDateTime,
                     Message = logEvent.MessageTemplate.ToString()
                 });
-            }
 
             if (!logs.Any()) return;
 
@@ -61,7 +55,10 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
         }
 
         /// <inheritdoc />
-        public Task OnEmptyBatchAsync() => Task.CompletedTask;
+        public Task OnEmptyBatchAsync()
+        {
+            return Task.CompletedTask;
+        }
 
         /// <summary>
         ///     Checks whether or not a collection exists.

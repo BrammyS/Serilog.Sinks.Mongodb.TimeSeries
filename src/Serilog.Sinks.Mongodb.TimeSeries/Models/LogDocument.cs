@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using MongoDB.Bson;
-using Serilog.Events;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Models
 {
@@ -31,11 +29,11 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
         /// <summary>
         ///     The message template describing the event.
         /// </summary>
-        public string Message { get; init;} = null!;
+        public string Message { get; init; } = null!;
 
         /// <summary>
         ///     An exception associated with the event, or null.
         /// </summary>
-        public Exception? Exception { get; init;}
+        public Exception? Exception { get; init; }
     }
 }
