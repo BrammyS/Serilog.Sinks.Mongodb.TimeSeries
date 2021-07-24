@@ -1,0 +1,28 @@
+name: .NET Build Serilog.Sinks.Mongodb.TimeSeries
+on:
+  push:
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - run: echo ${{matrix.os}}
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+         dotnet-version: 5.0.x
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build Serilog.Sinks.Mongodb.TimeSeries
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test Serilog.Sinks.Mongodb.TimeSeries
+        run: dotnet test --no-build --configuration Release --logger GitHubActions
