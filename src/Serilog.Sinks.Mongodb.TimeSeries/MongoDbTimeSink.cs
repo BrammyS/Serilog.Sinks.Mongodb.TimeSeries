@@ -44,7 +44,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
             {
                 var messageWriter = new StringWriter();
                 logEvent.RenderMessage(new StringWriter());
-                
+
                 logs.Add(new LogDocument
                 {
                     Exception = logEvent.Exception,
