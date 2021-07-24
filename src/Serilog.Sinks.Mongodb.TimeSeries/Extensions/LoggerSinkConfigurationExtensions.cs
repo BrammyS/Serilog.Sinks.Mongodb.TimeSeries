@@ -21,7 +21,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         ///     to batch the logs.
         /// </param>
         /// <returns>
-        ///     The new <see cref="LoggerSinkConfiguration" /> with new sink.
+        ///     The new <see cref="LoggerSinkConfiguration" /> with the new sink.
         /// </returns>
         public static LoggerConfiguration MongoDbTimeSeriesSink(this LoggerSinkConfiguration loggerConfiguration, MongoDbTimeSeriesSinkConfig sinkConfig, PeriodicBatchingSinkOptions batchingOptions)
         {
@@ -39,7 +39,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         ///     to batch the logs.
         /// </param>
         /// <returns>
-        ///     The new <see cref="LoggerSinkConfiguration" /> with new sink.
+        ///     The new <see cref="LoggerSinkConfiguration" /> with the new sink.
         /// </returns>
         public static LoggerConfiguration MongoDbTimeSeriesSink(this LoggerSinkConfiguration loggerConfiguration, IMongoDatabase database, PeriodicBatchingSinkOptions batchingOptions)
         {
@@ -52,7 +52,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         /// <param name="loggerConfiguration">The <see cref="LoggerSinkConfiguration" />.</param>
         /// <param name="database">The database of where the logs will be stored.</param>
         /// <returns>
-        ///     The new <see cref="LoggerSinkConfiguration" /> with new sink.
+        ///     The new <see cref="LoggerSinkConfiguration" /> with the new sink.
         /// </returns>
         public static LoggerConfiguration MongoDbTimeSeriesSink(this LoggerSinkConfiguration loggerConfiguration, IMongoDatabase database)
         {
