@@ -43,7 +43,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
             foreach (var logEvent in batch)
             {
                 var messageWriter = new StringWriter();
-                logEvent.RenderMessage(new StringWriter());
+                logEvent.RenderMessage(messageWriter);
 
                 logs.Add(new LogDocument
                 {
