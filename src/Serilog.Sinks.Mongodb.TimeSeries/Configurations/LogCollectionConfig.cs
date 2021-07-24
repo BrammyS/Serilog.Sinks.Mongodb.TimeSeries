@@ -21,6 +21,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
                 cm.MapField(x => x.Message).SetElementName("message").SetIsRequired(true);
                 cm.MapField(x => x.Properties).SetElementName("properties").SetIsRequired(false);
                 cm.MapField(x => x.Exception).SetElementName("exception").SetIsRequired(false);
+                cm.MapField(x => x.Severity).SetElementName("severity").SetIsRequired(false);
             });
         }
     }
