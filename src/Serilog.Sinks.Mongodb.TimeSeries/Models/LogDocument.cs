@@ -24,9 +24,9 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
         public DateTime Timestamp { get; init; }
 
         /// <summary>
-        ///     The level of the event.
+        ///     The log level severity.
         /// </summary>
-        public LogEventLevel Level { get; init;}
+        public string Severity { get; init; } = null!;
 
         /// <summary>
         ///     The message template describing the event.
