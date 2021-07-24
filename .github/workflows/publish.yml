@@ -1,0 +1,36 @@
+name: Publis nuget packages
+on:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+"
+    - "v[0-9]+.[0-9]+.[0-9]+-alpha"
+    - "v[0-9]+.[0-9]+.[0-9]+-beta"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Verify commit exists in origin/main
+      run: |
+        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        git branch --remote --contains | grep origin/main
+    - name: Set VERSION variable from tag
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+
+    - name: Build Serilog.Sinks.Mongodb.TimeSeries
+      run: dotnet build --configuration Release /p:Version=${VERSION}
+
+    - name: Run unit tests
+      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+
+    - name: Pack Serilog.Sinks.Mongodb.TimeSeries
+      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+
+    - name: Push Serilog.Sinks.Mongodb.TimeSeries github
+      run: dotnet nuget push Serilog.Sinks.Mongodb.TimeSeries.${VERSION}.nupkg --source https://nuget.pkg.github.com/brammys/index.json --api-key ${{ secrets.PAT }} --skip-duplicate
+
+    - name: Push Serilog.Sinks.Mongodb.TimeSeries nuget.org
+      run: dotnet nuget push Serilog.Sinks.Mongodb.TimeSeries.${VERSION}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source https://api.nuget.org/v3/index.json --skip-duplicate
