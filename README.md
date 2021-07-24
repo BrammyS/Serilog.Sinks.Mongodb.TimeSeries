@@ -1,3 +1,5 @@
+![sink](https://cdn.brammys.com/file/brammys/img/potable-water_1f6b0.png "Sink img")
+
 # serilogsink-mongodb-timeseries
 [![serilogsink-mongodb-timeseries](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml/badge.svg)](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml)
 [![NuGet](https://img.shields.io/nuget/vpre/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600?style=plastic)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
