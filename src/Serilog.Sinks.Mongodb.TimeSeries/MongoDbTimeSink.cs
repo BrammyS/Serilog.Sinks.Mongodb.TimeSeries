@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
@@ -39,15 +40,21 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
         {
             var logs = new List<LogDocument>();
 
-            foreach (var logEvent in batch.ToList())
+            foreach (var logEvent in batch)
+            {
+                var messageWriter = new StringWriter();
+                logEvent.RenderMessage(new StringWriter());
+
                 logs.Add(new LogDocument
                 {
                     Exception = logEvent.Exception,
                     Severity = logEvent.Level.ToSeverityString(),
                     Properties = logEvent.Properties.ToDictionary(x => x.Key.ToSaveAbleString(), x => x.Value.ToString()),
                     Timestamp = logEvent.Timestamp.UtcDateTime,
-                    Message = logEvent.MessageTemplate.ToString()
+                    Message = messageWriter.ToString()
                 });
+            }
+
 
             if (!logs.Any()) return;
 
