@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using MongoDB.Bson;
-using Serilog.Events;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Models
 {
@@ -24,18 +22,18 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
         public DateTime Timestamp { get; init; }
 
         /// <summary>
-        ///     The level of the event.
+        ///     The log level severity.
         /// </summary>
-        public LogEventLevel Level { get; init;}
+        public string Severity { get; init; } = null!;
 
         /// <summary>
         ///     The message template describing the event.
         /// </summary>
-        public string Message { get; init;} = null!;
+        public string Message { get; init; } = null!;
 
         /// <summary>
         ///     An exception associated with the event, or null.
         /// </summary>
-        public Exception? Exception { get; init;}
+        public Exception? Exception { get; init; }
     }
 }

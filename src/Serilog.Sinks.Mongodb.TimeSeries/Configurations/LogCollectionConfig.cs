@@ -7,7 +7,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
     internal static class LogCollectionConfig
     {
         /// <summary>
-        ///     Configures the mapping of the <see cref="LogDocument"/> object so it can be stored in a collection.
+        ///     Configures the mapping of the <see cref="LogDocument" /> object so it can be stored in a collection.
         /// </summary>
         internal static void ConfigureCollection()
         {
