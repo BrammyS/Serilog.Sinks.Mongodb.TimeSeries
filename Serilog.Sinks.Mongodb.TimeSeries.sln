@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Mongodb.TimeSeries", "Serilog.Sinks.Mongodb.TimeSeries\Serilog.Sinks.Mongodb.TimeSeries.csproj", "{10F833D7-564E-443D-9FF7-6D2CD7A2CE19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Mongodb.TimeSeries", "src\Serilog.Sinks.Mongodb.TimeSeries\Serilog.Sinks.Mongodb.TimeSeries.csproj", "{10F833D7-564E-443D-9FF7-6D2CD7A2CE19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E03E32C8-5815-4F61-8AFA-498B415B0927}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F5E9B871-B5F3-42C0-AEFA-86CEB20CA421}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Sinks.Mongodb.TimeSeries.Extensions.Tests", "tests\Serilog.Sinks.Mongodb.TimeSeries.Extensions.Tests\Serilog.Sinks.Mongodb.TimeSeries.Extensions.Tests.csproj", "{EEAA64EA-CF45-4CB6-B5D2-0048581A049C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,13 @@ Global
 		{10F833D7-564E-443D-9FF7-6D2CD7A2CE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10F833D7-564E-443D-9FF7-6D2CD7A2CE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10F833D7-564E-443D-9FF7-6D2CD7A2CE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEAA64EA-CF45-4CB6-B5D2-0048581A049C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAA64EA-CF45-4CB6-B5D2-0048581A049C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAA64EA-CF45-4CB6-B5D2-0048581A049C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAA64EA-CF45-4CB6-B5D2-0048581A049C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10F833D7-564E-443D-9FF7-6D2CD7A2CE19} = {E03E32C8-5815-4F61-8AFA-498B415B0927}
+		{EEAA64EA-CF45-4CB6-B5D2-0048581A049C} = {F5E9B871-B5F3-42C0-AEFA-86CEB20CA421}
 	EndGlobalSection
 EndGlobal

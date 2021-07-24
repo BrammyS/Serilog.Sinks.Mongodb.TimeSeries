@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using MongoDB.Bson;
 using Serilog.Events;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Models
 {
-    internal class Log
+    internal class LogDocument
     {
         /// <summary>
         ///     The object id of the document.
@@ -30,7 +31,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
         /// <summary>
         ///     The message template describing the event.
         /// </summary>
-        public MessageTemplate MessageTemplate { get; init;} = null!;
+        public string Message { get; init;} = null!;
 
         /// <summary>
         ///     An exception associated with the event, or null.
