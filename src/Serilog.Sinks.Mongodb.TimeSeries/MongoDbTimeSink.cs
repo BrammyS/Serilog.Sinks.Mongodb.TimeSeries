@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using Serilog.Events;
 using Serilog.Sinks.Mongodb.TimeSeries.Configurations;
@@ -18,46 +16,27 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
     internal class MongoDbTimeSink : IBatchedLogEventSink
     {
         private readonly IMongoCollection<LogDocument> _collection;
-        private readonly MongoDbTimeSeriesSinkConfig _config;
+        private readonly IFormatProvider? _formatProvider;
 
         /// <summary>
         ///     Initializes a new <see cref="MongoDbTimeSink" />.
         /// </summary>
         /// <param name="config">The <see cref="MongoDbTimeSeriesSinkConfig" /> that will be used to configure the Mongodb sink.</param>
-        internal MongoDbTimeSink(MongoDbTimeSeriesSinkConfig config)
+        /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
+        internal MongoDbTimeSink(MongoDbTimeSeriesSinkConfig config, IFormatProvider? formatProvider = null)
         {
-            _config = config;
+            _formatProvider = formatProvider;
+            if (!config.Database.CollectionExists(config.CollectionName)) config.Database.CreateCollection(config.CollectionName, config.CreateCollectionOptions);
 
-            if (!CollectionExists()) _config.Database.CreateCollection(_config.CollectionName, _config.Options);
+            LogCollectionConfig.ConfigureLogDocumentCollection();
 
-            LogCollectionConfig.ConfigureCollection();
-
-            _collection = _config.Database.GetCollection<LogDocument>(_config.CollectionName);
+            _collection = config.Database.GetCollection<LogDocument>(config.CollectionName);
         }
 
         /// <inheritdoc />
         public async Task EmitBatchAsync(IEnumerable<LogEvent> batch)
         {
-            var logs = new List<LogDocument>();
-
-            foreach (var logEvent in batch)
-            {
-                var messageWriter = new StringWriter();
-                logEvent.RenderMessage(messageWriter);
-
-                logs.Add(new LogDocument
-                {
-                    Exception = logEvent.Exception,
-                    Severity = logEvent.Level.ToSeverityString(),
-                    Properties = logEvent.Properties.ToDictionary(x => x.Key.ToSaveAbleString(), x => x.Value.ToString()),
-                    Timestamp = logEvent.Timestamp.UtcDateTime,
-                    Message = messageWriter.ToString()
-                });
-            }
-
-
-            if (!logs.Any()) return;
-
+            var logs = batch.ToDocuments(_formatProvider);
             await _collection.InsertManyAsync(logs).ConfigureAwait(false);
         }
 
@@ -65,19 +44,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries
         public Task OnEmptyBatchAsync()
         {
             return Task.CompletedTask;
-        }
-
-        /// <summary>
-        ///     Checks whether or not a collection exists.
-        /// </summary>
-        /// <returns>
-        ///     Whether or not a collection exists..
-        /// </returns>
-        private bool CollectionExists()
-        {
-            var filter = new BsonDocument("name", _config.CollectionName);
-            var collectionCursor = _config.Database.ListCollections(new ListCollectionsOptions {Filter = filter});
-            return collectionCursor.Any();
         }
     }
 }

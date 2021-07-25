@@ -13,7 +13,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
         public static void ShouldConfigureLogCollection()
         {
             // Act
-            LogCollectionConfig.ConfigureCollection();
+            LogCollectionConfig.ConfigureLogDocumentCollection();
 
             // Assert
             BsonClassMap.IsClassMapRegistered(typeof(LogDocument)).Should().BeTrue();

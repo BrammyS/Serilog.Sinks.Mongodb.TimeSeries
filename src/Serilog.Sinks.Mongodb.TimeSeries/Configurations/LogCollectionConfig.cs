@@ -9,7 +9,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         /// <summary>
         ///     Configures the mapping of the <see cref="LogDocument" /> object so it can be stored in a collection.
         /// </summary>
-        internal static void ConfigureCollection()
+        internal static void ConfigureLogDocumentCollection()
         {
             BsonClassMap.RegisterClassMap<LogDocument>(cm =>
             {
