@@ -18,7 +18,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
             Database = database;
 
             // Todo: Create a time specific create collections config.
-            Options = DefaultCreateCollectionOptions();
+            CreateCollectionOptions = DefaultCreateCollectionOptions();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         {
             CollectionName = "logs";
             Database = database;
-            Options = DefaultCreateCollectionOptions();
+            CreateCollectionOptions = DefaultCreateCollectionOptions();
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         public string CollectionName { get; init; }
 
         /// <summary>
-        ///     The <see cref="CreateCollectionOptions" /> that will be used to create a new collection
+        ///     The <see cref="MongoDB.Driver.CreateCollectionOptions" /> that will be used to create a new collection
         ///     when no collection with the name of <see cref="CollectionName" /> exists.
         /// </summary>
-        internal CreateCollectionOptions Options { get; init; }
+        internal CreateCollectionOptions CreateCollectionOptions { get; init; }
 
         /// <summary>
         ///     The <see cref="IMongoDatabase" /> of where the collection will be stored..
@@ -49,10 +49,10 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         public IMongoDatabase Database { get; init; }
 
         /// <summary>
-        ///     Get a default implementation of <see cref="CreateCollectionOptions" />.
+        ///     Get a default implementation of <see cref="MongoDB.Driver.CreateCollectionOptions" />.
         /// </summary>
         /// <returns>
-        ///     A default implementation of <see cref="CreateCollectionOptions" />.
+        ///     A default implementation of <see cref="MongoDB.Driver.CreateCollectionOptions" />.
         /// </returns>
         private static CreateCollectionOptions DefaultCreateCollectionOptions()
         {
