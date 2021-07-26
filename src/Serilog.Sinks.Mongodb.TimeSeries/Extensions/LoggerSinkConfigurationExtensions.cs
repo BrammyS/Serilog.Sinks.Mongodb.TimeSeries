@@ -63,7 +63,8 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         {
             var defaultSinkOptions = new PeriodicBatchingSinkOptions
             {
-                BatchSizeLimit = 500,
+                BatchSizeLimit = 1000,
+                QueueLimit = 10000,
                 Period = TimeSpan.FromSeconds(10),
                 EagerlyEmitFirstEvent = true
             };
