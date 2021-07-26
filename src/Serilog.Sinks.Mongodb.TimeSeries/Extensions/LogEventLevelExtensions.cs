@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Serilog.Events;
-using Serilog.Sinks.Mongodb.TimeSeries.Models;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
 {
@@ -34,35 +31,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
                 LogEventLevel.Fatal => "fatal",
                 _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
             };
-        }
-
-        /// <summary>
-        ///     Converts a <see cref="IEnumerable{T}" /> of <see cref="LogEvent" />s to <see cref="IEnumerable{T}" /> of
-        ///     <see cref="LogDocument" />s.
-        /// </summary>
-        /// <param name="logEvents">The log events that will be converted.</param>
-        /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
-        /// <returns>
-        ///     The converted <see cref="IEnumerable{T}" /> of <see cref="LogDocument" />s.
-        /// </returns>
-        internal static IEnumerable<LogDocument> ToDocuments(this IEnumerable<LogEvent> logEvents, IFormatProvider? formatProvider = null)
-        {
-            var logs = new List<LogDocument>();
-
-            foreach (var logEvent in logEvents)
-            {
-                var message = logEvent.RenderMessage(formatProvider);
-                logs.Add(new LogDocument
-                {
-                    Exception = logEvent.Exception,
-                    Severity = logEvent.Level.ToSeverityString(),
-                    Properties = logEvent.Properties.ToDictionary(x => x.Key.ToSaveAbleString(), x => x.Value.ToString()),
-                    Timestamp = logEvent.Timestamp.UtcDateTime,
-                    Message = message
-                });
-            }
-
-            return logs;
         }
     }
 }
