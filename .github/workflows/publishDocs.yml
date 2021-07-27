@@ -41,3 +41,4 @@ jobs:
           github_token: ${{ secrets.PAT }}
           publish_dir: docs/_site
           force_orphan: true
+          cname: sinks-mongodb-timeseries.brammys.com
