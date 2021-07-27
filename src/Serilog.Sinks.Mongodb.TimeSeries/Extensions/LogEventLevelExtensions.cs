@@ -8,6 +8,13 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
     /// </summary>
     internal static class LogEventLevelExtensions
     {
+        private const string Verbose = "verbose";
+        private const string Debug = "debug";
+        private const string Information = "information";
+        private const string Warning = "warning";
+        private const string Error = "error";
+        private const string Fatal = "fatal";
+        
         /// <summary>
         ///     Converts a <see cref="LogEventLevel" /> into a readable <see cref="string" />.
         /// </summary>
@@ -23,12 +30,12 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         {
             return level switch
             {
-                LogEventLevel.Verbose => "verbose",
-                LogEventLevel.Debug => "debug",
-                LogEventLevel.Information => "information",
-                LogEventLevel.Warning => "warning",
-                LogEventLevel.Error => "error",
-                LogEventLevel.Fatal => "fatal",
+                LogEventLevel.Verbose => Verbose,
+                LogEventLevel.Debug => Debug,
+                LogEventLevel.Information => Information,
+                LogEventLevel.Warning => Warning,
+                LogEventLevel.Error => Error,
+                LogEventLevel.Fatal => Fatal,
                 _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
             };
         }
