@@ -7,14 +7,9 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
     internal class LogDocument
     {
         /// <summary>
-        ///     The object id of the document.
-        /// </summary>
-        public BsonObjectId ObjectId { get; init; } = null!;
-
-        /// <summary>
         ///     Properties associated with the event, including those presented in <see cref="Serilog.Events.MessageTemplate" />.
         /// </summary>
-        public Dictionary<string, string> Properties { get; init; } = null!;
+        public Dictionary<string, BsonValue> Properties { get; init; } = null!;
 
         /// <summary>
         ///     The time at which the event occurred.
