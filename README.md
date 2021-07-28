@@ -34,16 +34,21 @@ OR
 var client = new MongoClient("mongodb://mongodb0.example.com:27017");
 var mongoDatabase = client.GetDatabase("dbName");
 
-var batchingConfig = new PeriodicBatchingSinkOptions
+var configs = new MongoDbTimeSeriesSinkConfig(mongoDatabase)
 {
-    BatchSizeLimit = 250,
-    Period = TimeSpan.FromSeconds(20),
+    CollectionName = "Logs",
+    TimeSeriesGranularity = TimeSeriesGranularity.Seconds,
+    SyncingPeriod = TimeSpan.FromSeconds(10),
+    LogsExpireAfter = TimeSpan.FromDays(7),
+    MaxCollectionSize = 100 * 1024 * 1024,
     EagerlyEmitFirstEvent = true,
-    QueueLimit = 500
+    MaxLogsAmount = 100000,
+    BatchSizeLimit = 500,
+    QueueLimit = 20000
 };
 
 Log.Logger = new LoggerConfiguration()
-                 .WriteTo.MongoDbTimeSeriesSink(mongoDatabase, batchingConfig)
+                 .WriteTo.MongoDbTimeSeriesSink(configs)
                  .CreateLogger();
 ```
 
