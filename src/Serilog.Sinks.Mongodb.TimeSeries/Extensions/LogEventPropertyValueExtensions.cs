@@ -18,33 +18,47 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         /// </returns>
         public static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
         {
-            if (propertyValue is ScalarValue scalar)
+            try
             {
-                return ConvertScalar(scalar.Value);
-            }
-
-            if (propertyValue is DictionaryValue dict)
-            {
-                var bsonDict = new Dictionary<BsonValue, BsonValue>();
-                foreach (var (key, value) in dict.Elements)
+                if (propertyValue is ScalarValue scalar)
                 {
-                    bsonDict.Add(ConvertScalar(key), value.ToBsonValue(format, formatProvider));
+                    return ConvertScalar(scalar.Value);
                 }
+
+                if (propertyValue is DictionaryValue dict)
+                {
+                    var bsonDict = new Dictionary<BsonValue, BsonValue>();
+                    foreach (var (key, value) in dict.Elements)
+                    {
+                        bsonDict.Add(ConvertScalar(key), value.ToBsonValue(format, formatProvider));
+                    }
                 
-                return BsonValue.Create(bsonDict);
-            }
+                    return BsonValue.Create(bsonDict);
+                }
 
-            if (propertyValue is SequenceValue seq)
+                if (propertyValue is SequenceValue seq)
+                {
+                    var bsonList = new List<BsonValue>();
+                    foreach (var value in seq.Elements)
+                    {
+                        bsonList.Add(value.ToBsonValue(format, formatProvider));
+                    }
+                
+                    return BsonValue.Create(bsonList);
+                }
+
+                if (propertyValue is StructureValue str)
+                {
+                    return BsonValue.Create(str.ToString(format, formatProvider));
+                }
+
+                return BsonValue.Create(null);
+            }
+            catch (Exception e)
             {
-                return BsonValue.Create(seq.ToString(format, formatProvider));
+                Console.WriteLine(e);
+                throw;
             }
-
-            if (propertyValue is StructureValue str)
-            {
-                return BsonValue.Create(str.ToString(format, formatProvider));
-            }
-
-            return BsonValue.Create(null);
         }
 
         private static BsonValue ConvertScalar(object? value)
