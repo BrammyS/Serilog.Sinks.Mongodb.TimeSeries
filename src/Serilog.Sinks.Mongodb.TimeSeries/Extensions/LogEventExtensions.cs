@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
 using Serilog.Events;
 using Serilog.Sinks.Mongodb.TimeSeries.Models;
 
@@ -26,9 +27,15 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
             foreach (var logEvent in logEvents)
             {
                 var message = logEvent.RenderMessage(formatProvider);
-                var properties = new Dictionary<string, string>();
+                var properties = new Dictionary<string, BsonValue>();
 
-                foreach (var (key, value) in logEvent.Properties) properties.Add(key.ToSaveAbleString(), value.ToString());
+                foreach (var (key, value) in logEvent.Properties)
+                {
+                    if (value is ScalarValue)
+                    {
+                        properties.Add(key.ToSaveAbleString(), value.ToBsonValue(null, formatProvider));
+                    }
+                }
 
                 logs.Add(new LogDocument
                 {
