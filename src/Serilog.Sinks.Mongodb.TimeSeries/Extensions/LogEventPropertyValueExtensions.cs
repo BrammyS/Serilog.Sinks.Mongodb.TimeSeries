@@ -67,15 +67,14 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
 
             var valueType = value.GetType();
 
+            if (valueType == typeof(string)) return BsonValue.Create((string)value);
             if (valueType == typeof(byte[])) return BsonValue.Create((byte[])value);
-            if (valueType == typeof(bool)) return BsonValue.Create((bool)value);
-            if (valueType == typeof(DateTimeOffset)) return BsonValue.Create((DateTimeOffset)value);
-            if (valueType == typeof(DateTime)) return BsonValue.Create((DateTime)value);
-            if (valueType == typeof(double)) return BsonValue.Create((double)value);
-            if (valueType == typeof(Guid)) return BsonValue.Create((Guid)value);
             if (valueType == typeof(int)) return BsonValue.Create((int)value);
             if (valueType == typeof(long)) return BsonValue.Create((long)value);
-            if (valueType == typeof(string)) return BsonValue.Create((string)value);
+            if (valueType == typeof(bool)) return BsonValue.Create((bool)value);
+            if (valueType == typeof(double)) return BsonValue.Create((double)value);
+            if (valueType == typeof(DateTimeOffset)) return BsonValue.Create(((DateTimeOffset)value).Date);
+            if (valueType == typeof(DateTime)) return BsonValue.Create((DateTime)value);
 
             return BsonValue.Create(value.ToString());
         }
