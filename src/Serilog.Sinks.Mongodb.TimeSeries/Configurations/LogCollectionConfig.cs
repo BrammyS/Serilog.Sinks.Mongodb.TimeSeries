@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.IdGenerators;
 using Serilog.Sinks.Mongodb.TimeSeries.Models;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
@@ -14,9 +13,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
             BsonClassMap.RegisterClassMap<LogDocument>(cm =>
             {
                 cm.AutoMap();
-                cm.MapIdProperty(c => c.ObjectId)
-                  .SetIdGenerator(BsonObjectIdGenerator.Instance)
-                  .SetIsRequired(true);
                 cm.MapField(x => x.Timestamp).SetElementName("timestamp").SetIsRequired(true);
                 cm.MapField(x => x.Message).SetElementName("message").SetIsRequired(true);
                 cm.MapField(x => x.Properties).SetElementName("properties").SetIsRequired(false);
