@@ -31,10 +31,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
 
                 foreach (var (key, value) in logEvent.Properties)
                 {
-                    if (value is ScalarValue)
-                    {
-                        properties.Add(key.ToSaveAbleString(), value.ToBsonValue(null, formatProvider));
-                    }
+                    properties.Add(key.ToSaveAbleString(), value.ToBsonValue(null, formatProvider));
                 }
 
                 logs.Add(new LogDocument
