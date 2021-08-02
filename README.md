@@ -1,9 +1,9 @@
 ![sink](https://cdn.brammys.com/file/brammys/img/potable-water_1f6b0.png "Sink img")
 
 # Serilog.Sinks.Mongodb.TimeSeries
-[![serilogsink-mongodb-timeseries](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml/badge.svg)](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml)
-[![NuGet](https://img.shields.io/nuget/vpre/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600?style=plastic)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
-[![NuGet](https://img.shields.io/nuget/dt/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600?style=plastic)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
+[![serilogsink-mongodb-timeseries](https://img.shields.io/github/workflow/status/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/.NET%20Build%20Serilog.Sinks.Mongodb.TimeSeries/main?style=for-the-badge)](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml)
+[![NuGet](https://img.shields.io/nuget/vpre/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600&style=for-the-badge)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
+[![NuGet](https://img.shields.io/nuget/dt/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600&style=for-the-badge)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
 
 A sink for Serilog that saves logs in a MongoDb [time series](https://docs.mongodb.com/manual/core/timeseries-collections/) collection.
 
