@@ -2,6 +2,7 @@
 
 # Serilog.Sinks.Mongodb.TimeSeries
 [![serilogsink-mongodb-timeseries](https://img.shields.io/github/workflow/status/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/.NET%20Build%20Serilog.Sinks.Mongodb.TimeSeries/main?style=for-the-badge)](https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries/actions/workflows/dotnet.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/brammys/serilog.sinks.mongodb.timeseries/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/brammys/serilog.sinks.mongodb.timeseries)
 [![NuGet](https://img.shields.io/nuget/vpre/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600&style=for-the-badge)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
 [![NuGet](https://img.shields.io/nuget/dt/Serilog.Sinks.Mongodb.TimeSeries.svg?maxAge=600&style=for-the-badge)](https://www.nuget.org/packages/Serilog.Sinks.Mongodb.TimeSeries)
 [![License](https://img.shields.io/github/license/BrammyS/Serilog.Sinks.Mongodb.TimeSeries?style=for-the-badge)](https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/blob/main/LICENSE)
