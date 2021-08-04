@@ -41,6 +41,14 @@
         <PackageIconUrl>https://cdn.brammys.com/file/brammys/img/potable-water_1f6b0.png</PackageIconUrl>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Serilog.Sinks.Mongodb.TimeSeries.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Serilog.Sinks.Mongodb.TimeSeries.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
         <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
     </ItemGroup>

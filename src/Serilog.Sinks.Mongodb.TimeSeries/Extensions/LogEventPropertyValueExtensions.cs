@@ -5,7 +5,10 @@ using Serilog.Events;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
 {
-    public static class LogEventPropertyValueExtensions
+    /// <summary>
+    ///     Contains all extensions methods for <see cref="LogEventPropertyValue" />.
+    /// </summary>
+    internal static class LogEventPropertyValueExtensions
     {
         /// <summary>
         ///     Converts the <see cref="LogEventPropertyValue"/> to a <see cref="BsonValue"/>
@@ -16,7 +19,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         /// <returns>
         ///     The converted <see cref="BsonValue"/>.
         /// </returns>
-        public static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
+        internal static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
         {
             if (propertyValue is ScalarValue scalar)
             {
