@@ -4,13 +4,12 @@
       "src": [
         {
           "files": [ 
-            "**/*.sln", 
-            "**/*.csproj" 
+            "src/**.sln", 
+            "src/**.csproj" 
           ],
           "exclude": [ 
             "**/bin/**", 
-            "**/obj/**",
-            "**/Serilog.Sinks.Mongodb.TimeSeries.Tests/**"
+            "**/obj/**"
           ],
           "src": "../"
         }
