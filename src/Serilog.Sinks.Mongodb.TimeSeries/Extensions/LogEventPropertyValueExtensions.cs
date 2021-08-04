@@ -5,18 +5,21 @@ using Serilog.Events;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
 {
-    public static class LogEventPropertyValueExtensions
+    /// <summary>
+    ///     Contains all extensions methods for <see cref="LogEventPropertyValue" />.
+    /// </summary>
+    internal static class LogEventPropertyValueExtensions
     {
         /// <summary>
-        ///     Converts the <see cref="LogEventPropertyValue"/> to a <see cref="BsonValue"/>
+        ///     Converts the <see cref="LogEventPropertyValue" /> to a <see cref="BsonValue" />
         /// </summary>
         /// <param name="propertyValue">The value to convert (possibly null).</param>
         /// <param name="format">A format string applied to the value, or null.</param>
         /// <param name="formatProvider">A format provider to apply to the value, or null to use the default.</param>
         /// <returns>
-        ///     The converted <see cref="BsonValue"/>.
+        ///     The converted <see cref="BsonValue" />.
         /// </returns>
-        public static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
+        internal static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
         {
             if (propertyValue is ScalarValue scalar)
             {
@@ -30,7 +33,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
                 {
                     bsonDict.Add(ConvertScalar(key), value.ToBsonValue(format, formatProvider));
                 }
-                
+
                 return BsonValue.Create(bsonDict);
             }
 
@@ -41,7 +44,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
                 {
                     bsonList.Add(value.ToBsonValue(format, formatProvider));
                 }
-                
+
                 return BsonValue.Create(bsonList);
             }
 

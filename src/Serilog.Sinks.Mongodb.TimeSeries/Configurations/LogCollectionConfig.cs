@@ -3,6 +3,9 @@ using Serilog.Sinks.Mongodb.TimeSeries.Models;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
 {
+    /// <summary>
+    ///     Holds the mongodb collection configuration for the <see cref="LogDocument" /> collection.
+    /// </summary>
     internal static class LogCollectionConfig
     {
         /// <summary>

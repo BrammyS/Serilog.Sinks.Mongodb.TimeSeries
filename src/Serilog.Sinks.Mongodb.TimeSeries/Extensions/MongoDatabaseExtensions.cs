@@ -19,7 +19,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         internal static bool CollectionExists(this IMongoDatabase database, string collectionName)
         {
             var filter = new BsonDocument("name", collectionName);
-            var collectionCursor = database.ListCollections(new ListCollectionsOptions {Filter = filter});
+            var collectionCursor = database.ListCollections(new ListCollectionsOptions { Filter = filter });
             return collectionCursor.Any();
         }
     }

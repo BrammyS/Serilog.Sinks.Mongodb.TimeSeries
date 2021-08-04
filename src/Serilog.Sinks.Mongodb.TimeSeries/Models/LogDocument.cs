@@ -4,6 +4,9 @@ using MongoDB.Bson;
 
 namespace Serilog.Sinks.Mongodb.TimeSeries.Models
 {
+    /// <summary>
+    ///     The document that will be stored in mongodb.
+    /// </summary>
     internal class LogDocument
     {
         /// <summary>
