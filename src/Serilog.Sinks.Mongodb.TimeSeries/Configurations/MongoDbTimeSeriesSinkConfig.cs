@@ -31,7 +31,8 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         public int BatchSizeLimit { get; init; } = 1000;
 
         /// <summary>
-        ///     Maximum number of events to hold in the sink's internal queue, or null for an unbounded queue. The default is 10000.
+        ///     Maximum number of events to hold in the sink's internal queue, or null for an unbounded queue. The default is
+        ///     10000.
         /// </summary>
         public int QueueLimit { get; init; } = 10000;
 

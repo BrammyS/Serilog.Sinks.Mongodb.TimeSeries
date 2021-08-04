@@ -31,7 +31,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
             };
 
             var logSink = new MongoDbTimeSink(sinkConfig, formatProvider);
-            
+
             var batchingMongoDbSink = new PeriodicBatchingSink(logSink, batchingOptions);
             return loggerConfiguration.Sink(batchingMongoDbSink);
         }

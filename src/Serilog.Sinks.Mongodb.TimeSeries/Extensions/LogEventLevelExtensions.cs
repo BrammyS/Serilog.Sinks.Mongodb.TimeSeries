@@ -14,7 +14,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
         private const string Warning = "warning";
         private const string Error = "error";
         private const string Fatal = "fatal";
-        
+
         /// <summary>
         ///     Converts a <see cref="LogEventLevel" /> into a readable <see cref="string" />.
         /// </summary>
