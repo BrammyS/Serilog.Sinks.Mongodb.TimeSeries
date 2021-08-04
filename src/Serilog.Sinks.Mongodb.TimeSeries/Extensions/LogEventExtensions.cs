@@ -9,7 +9,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
     /// <summary>
     ///     Contains all extensions methods for <see cref="LogEvent" />.
     /// </summary>
-    public static class LogEventExtensions
+    internal static class LogEventExtensions
     {
         /// <summary>
         ///     Converts a <see cref="IEnumerable{T}" /> of <see cref="LogEvent" />s to <see cref="IEnumerable{T}" /> of
