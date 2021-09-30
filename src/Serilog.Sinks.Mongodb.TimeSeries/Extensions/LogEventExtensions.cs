@@ -37,6 +37,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
                 logs.Add(new LogDocument
                 {
                     Exception = logEvent.Exception,
+                    StackTrace = logEvent.Exception.StackTrace,
                     Severity = logEvent.Level.ToSeverityString(),
                     Properties = properties,
                     Timestamp = logEvent.Timestamp.UtcDateTime,
