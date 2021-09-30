@@ -33,5 +33,10 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
         ///     An exception associated with the event, or null.
         /// </summary>
         public Exception? Exception { get; init; }
+
+        /// <summary>
+        ///     The stack trace of the error, or null.
+        /// </summary>
+        public string? StackTrace { get; init; }
     }
 }
