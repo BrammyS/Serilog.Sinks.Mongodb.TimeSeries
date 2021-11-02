@@ -29,6 +29,13 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
             config.MaxCollectionSize.Should().BeNull();
             config.MaxLogsAmount.Should().BeNull();
             config.LogsExpireAfter.Should().BeNull();
+            
+            config.CreateCollectionOptions.Capped.Should().BeFalse();
+            config.CreateCollectionOptions.ExpireAfter.Should().BeNull();
+            config.CreateCollectionOptions.MaxDocuments.Should().BeNull();
+            config.CreateCollectionOptions.MaxSize.Should().BeNull();
+            config.CreateCollectionOptions.TimeSeriesOptions.Granularity.Should().Be(TimeSeriesGranularity.Seconds);
+            config.CreateCollectionOptions.TimeSeriesOptions.TimeField.Should().Be("timestamp");
         }
         
         [Test]
@@ -61,6 +68,13 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
             config.MaxCollectionSize.Should().Be(200);
             config.MaxLogsAmount.Should().Be(10);
             config.LogsExpireAfter.Should().Be(TimeSpan.FromMilliseconds(100));
+            
+            config.CreateCollectionOptions.Capped.Should().BeTrue();
+            config.CreateCollectionOptions.ExpireAfter.Should().Be(TimeSpan.FromMilliseconds(100));
+            config.CreateCollectionOptions.MaxDocuments.Should().Be(10);
+            config.CreateCollectionOptions.MaxSize.Should().Be(200);
+            config.CreateCollectionOptions.TimeSeriesOptions.Granularity.Should().Be(TimeSeriesGranularity.Hours);
+            config.CreateCollectionOptions.TimeSeriesOptions.TimeField.Should().Be("timestamp");
         }
     }
 }
