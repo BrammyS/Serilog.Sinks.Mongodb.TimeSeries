@@ -7,7 +7,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Models
     /// <summary>
     ///     The document that will be stored in mongodb.
     /// </summary>
-    internal class LogDocument
+    public class LogDocument
     {
         /// <summary>
         ///     Properties associated with the event, including those presented in <see cref="Serilog.Events.MessageTemplate" />.
