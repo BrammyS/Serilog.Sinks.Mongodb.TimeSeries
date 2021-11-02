@@ -17,7 +17,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         public MongoDbTimeSeriesSinkConfig(IMongoDatabase database)
         {
             Database = database;
-            CreateCollectionOptions = DefaultCreateCollectionOptions();
         }
 
         /// <summary>
@@ -73,7 +72,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         ///     The <see cref="MongoDB.Driver.CreateCollectionOptions" /> that will be used to create a new collection
         ///     when no collection with the name of <see cref="CollectionName" /> exists.
         /// </summary>
-        internal CreateCollectionOptions CreateCollectionOptions { get; init; }
+        internal CreateCollectionOptions CreateCollectionOptions => DefaultCreateCollectionOptions();
 
         /// <summary>
         ///     The <see cref="IMongoDatabase" /> of where the collection will be stored..
