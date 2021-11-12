@@ -52,18 +52,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
         public TimeSeriesGranularity TimeSeriesGranularity { get; init; } = TimeSeriesGranularity.Seconds;
 
         /// <summary>
-        ///     Gets or sets the maximum size of the collection in bytes.
-        ///     Logs will get deleted when this number has been hit.
-        /// </summary>
-        public long? MaxCollectionSize { get; init; }
-
-        /// <summary>
-        ///     Gets or sets the maximum number of logs that will be stored.
-        ///     Logs will get deleted when this number has been hit.
-        /// </summary>
-        public long? MaxLogsAmount { get; init; }
-
-        /// <summary>
         ///     Gets or sets a timespan indicating how long documents in a time series collection should be retained.
         /// </summary>
         public TimeSpan? LogsExpireAfter { get; init; }
@@ -92,10 +80,7 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Configurations
             return new CreateCollectionOptions
             {
                 TimeSeriesOptions = defaultTimeSeriesOptions,
-                MaxDocuments = MaxLogsAmount,
-                Capped = MaxLogsAmount is not null || MaxCollectionSize is not null,
-                ExpireAfter = LogsExpireAfter,
-                MaxSize = MaxCollectionSize
+                ExpireAfter = LogsExpireAfter
             };
         }
     }

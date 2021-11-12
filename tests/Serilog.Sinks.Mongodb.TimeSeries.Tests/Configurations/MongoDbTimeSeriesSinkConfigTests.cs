@@ -26,8 +26,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
             config.EagerlyEmitFirstEvent.Should().Be(true);
             config.SyncingPeriod.Should().Be(TimeSpan.FromSeconds(5));
             config.TimeSeriesGranularity.Should().Be(TimeSeriesGranularity.Seconds);
-            config.MaxCollectionSize.Should().BeNull();
-            config.MaxLogsAmount.Should().BeNull();
             config.LogsExpireAfter.Should().BeNull();
             
             config.CreateCollectionOptions.Capped.Should().BeFalse();
@@ -53,8 +51,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
                 EagerlyEmitFirstEvent = false,
                 SyncingPeriod = TimeSpan.FromSeconds(4),
                 TimeSeriesGranularity = TimeSeriesGranularity.Hours,
-                MaxCollectionSize = 200,
-                MaxLogsAmount = 10,
                 LogsExpireAfter = TimeSpan.FromMilliseconds(100)
             };
             
@@ -65,8 +61,6 @@ namespace Serilog.Sinks.Mongodb.TimeSeries.Tests.Configurations
             config.EagerlyEmitFirstEvent.Should().Be(false);
             config.SyncingPeriod.Should().Be(TimeSpan.FromSeconds(4));
             config.TimeSeriesGranularity.Should().Be(TimeSeriesGranularity.Hours);
-            config.MaxCollectionSize.Should().Be(200);
-            config.MaxLogsAmount.Should().Be(10);
             config.LogsExpireAfter.Should().Be(TimeSpan.FromMilliseconds(100));
             
             config.CreateCollectionOptions.Capped.Should().BeTrue();
