@@ -12,12 +12,7 @@ jobs:
         uses: actions/checkout@v1
 
       - run: echo ${{matrix.os}}
-      
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-         dotnet-version: '6.0.x'
-      
+
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1.7.2
         with:
