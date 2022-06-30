@@ -1,0 +1,176 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/Serilog.Sinks.Mongodb.TimeSeries/Serilog.Sinks.Mongodb.TimeSeries/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ZGCQzUWQIfGJNY9Y8TKZ5gYViJ/5co4rAE+tFz5OEY0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Configurations.MongoDbTimeSeriesSinkConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Configurations.MongoDbTimeSeriesSinkConfig.html",
+          "hash": "FSilLEr88Bc+MOq49bkqbHSeJycTHQPtdcUQnMRfD0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Configurations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Configurations.html",
+          "hash": "tYHqEW9VYlz93pS4AmbzJ9wkMVU33U3nZyX14DgabVQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Extensions.LoggerSinkConfigurationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Extensions.LoggerSinkConfigurationExtensions.html",
+          "hash": "77dN3M+xOELA5Mb6cWX9vUSLAvPF/KVG1atVDefQ7JA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Extensions.html",
+          "hash": "eVBCozHt19deJrMmsEhFTeaslyDwjahJukIluQ30r0Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Models.LogDocument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Models.LogDocument.html",
+          "hash": "zJjKe55cKk/GwMwo5mwK052aF8+LAWyGPWU9liJlo6A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Serilog.Sinks.Mongodb.TimeSeries.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Serilog.Sinks.Mongodb.TimeSeries.Models.html",
+          "hash": "VoaNFPvHb9Zu2ygUYwB4LZoxMdaTD4hayXQoWV2AIWI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "65KmPtnbob62pXYSXk5Ghl0QjEuiG9Tcq3AKe2llq0o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "czj3XwXgOaFn3zQiIdFs8XrHiI5DuO0xMIuBBcI7FlI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 1,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 6,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
