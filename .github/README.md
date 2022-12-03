@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries">
-    <img src="https://cdn.brammys.com/img/potable-water_1f6b0.png" alt="Logo" width="120" height="120">
+    <img src="https://cdn.brammys.com/potable-water.png" alt="Logo" width="120" height="120">
   </a>
 
   <h3 align="center">Serilog.Sinks.Mongodb.TimeSeries</h3>
