@@ -38,7 +38,7 @@
         <RepositoryBranch>main</RepositoryBranch>
         <RepositoryUrl>https://github.com/brammys/Serilog.Sinks.Mongodb.TimeSeries</RepositoryUrl>
         <PackageTags>serilog;sink;mongodb;timeseries</PackageTags>
-        <PackageIconUrl>https://cdn.brammys.com/file/brammys/img/potable-water_1f6b0.png</PackageIconUrl>
+        <PackageIconUrl>https://cdn.brammys.com/potable-water.png</PackageIconUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
