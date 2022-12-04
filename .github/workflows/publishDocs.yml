@@ -2,7 +2,7 @@ name: Publish documentation
 on:
   push:
     tags:
-    - "v[0-9]+.[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+"
 jobs:
   build:
     runs-on: windows-latest
@@ -14,7 +14,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-         dotnet-version: '7.0.x'
+          dotnet-version: '7.0.x'
 
       - name: Install dependencies
         run: dotnet restore
