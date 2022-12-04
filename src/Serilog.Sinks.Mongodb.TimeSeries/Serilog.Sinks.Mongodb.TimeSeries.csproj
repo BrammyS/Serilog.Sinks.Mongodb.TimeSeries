@@ -1,17 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFrameworks>net7.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>11.0</LangVersion>
         <RootNamespace>Serilog.Sinks.Mongodb.TimeSeries</RootNamespace>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="IsExternalInit.System.Runtime.CompilerServices" Version="1.0.0" />
         <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
         <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="3.1.0" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     </ItemGroup>
 
