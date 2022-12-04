@@ -163,7 +163,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Versioning
 
-Color-Chan.Discord uses [Semantic Versioning 2.0.0](https://semver.org/#semantic-versioning-200) for its versioning.
+Serilog.Sinks.Mongodb.TimeSeries uses [Semantic Versioning 2.0.0](https://semver.org/#semantic-versioning-200) for its versioning.
 
 
 ### Summary
