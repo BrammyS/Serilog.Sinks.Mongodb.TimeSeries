@@ -12,19 +12,19 @@
   <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries">
     <img src="https://cdn.brammys.com/potable-water.png" alt="Logo" width="120" height="120">
   </a>
+</p>
 
-  <h3 align="center">Serilog.Sinks.Mongodb.TimeSeries</h3>
+<h3 align="center">Serilog.Sinks.Mongodb.TimeSeries</h3>
 
-  <p align="center">
-    A simple to use sink for Serilog that saves logs in a Mongodb time series collection.
-    <br />
-    <a href="https://sinks-mongodb-timeseries.brammys.com/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Request Feature</a>
-  </p>
+<p align="center">
+  A simple to use sink for Serilog that saves logs in a Mongodb time series collection.
+  <br />
+  <a href="https://sinks-mongodb-timeseries.brammys.com/"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Request Feature</a>
 </p>
 
 

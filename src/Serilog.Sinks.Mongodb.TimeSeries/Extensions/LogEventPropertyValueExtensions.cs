@@ -3,75 +3,74 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using Serilog.Events;
 
-namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions
+namespace Serilog.Sinks.Mongodb.TimeSeries.Extensions;
+
+/// <summary>
+///     Contains all extensions methods for <see cref="LogEventPropertyValue" />.
+/// </summary>
+internal static class LogEventPropertyValueExtensions
 {
     /// <summary>
-    ///     Contains all extensions methods for <see cref="LogEventPropertyValue" />.
+    ///     Converts the <see cref="LogEventPropertyValue" /> to a <see cref="BsonValue" />
     /// </summary>
-    internal static class LogEventPropertyValueExtensions
+    /// <param name="propertyValue">The value to convert (possibly null).</param>
+    /// <param name="format">A format string applied to the value, or null.</param>
+    /// <param name="formatProvider">A format provider to apply to the value, or null to use the default.</param>
+    /// <returns>
+    ///     The converted <see cref="BsonValue" />.
+    /// </returns>
+    internal static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
     {
-        /// <summary>
-        ///     Converts the <see cref="LogEventPropertyValue" /> to a <see cref="BsonValue" />
-        /// </summary>
-        /// <param name="propertyValue">The value to convert (possibly null).</param>
-        /// <param name="format">A format string applied to the value, or null.</param>
-        /// <param name="formatProvider">A format provider to apply to the value, or null to use the default.</param>
-        /// <returns>
-        ///     The converted <see cref="BsonValue" />.
-        /// </returns>
-        internal static BsonValue ToBsonValue(this LogEventPropertyValue propertyValue, string? format = null, IFormatProvider? formatProvider = null)
+        if (propertyValue is ScalarValue scalar)
         {
-            if (propertyValue is ScalarValue scalar)
-            {
-                return ConvertScalar(scalar.Value);
-            }
-
-            if (propertyValue is DictionaryValue dict)
-            {
-                var bsonDict = new Dictionary<BsonValue, BsonValue>();
-                foreach (var (key, value) in dict.Elements)
-                {
-                    bsonDict.Add(ConvertScalar(key), value.ToBsonValue(format, formatProvider));
-                }
-
-                return BsonValue.Create(bsonDict);
-            }
-
-            if (propertyValue is SequenceValue seq)
-            {
-                var bsonList = new List<BsonValue>();
-                foreach (var value in seq.Elements)
-                {
-                    bsonList.Add(value.ToBsonValue(format, formatProvider));
-                }
-
-                return BsonValue.Create(bsonList);
-            }
-
-            if (propertyValue is StructureValue str)
-            {
-                return BsonValue.Create(str.ToString(format, formatProvider));
-            }
-
-            return BsonValue.Create(null);
+            return ConvertScalar(scalar.Value);
         }
 
-        private static BsonValue ConvertScalar(object? value)
+        if (propertyValue is DictionaryValue dict)
         {
-            if (value is null) return BsonValue.Create(null);
+            var bsonDict = new Dictionary<BsonValue, BsonValue>();
+            foreach (var (key, value) in dict.Elements)
+            {
+                bsonDict.Add(ConvertScalar(key), value.ToBsonValue(format, formatProvider));
+            }
 
-            var valueType = value.GetType();
-
-            if (valueType == typeof(string)) return BsonValue.Create((string)value);
-            if (valueType == typeof(byte[])) return BsonValue.Create((byte[])value);
-            if (valueType == typeof(int)) return BsonValue.Create((int)value);
-            if (valueType == typeof(long)) return BsonValue.Create((long)value);
-            if (valueType == typeof(bool)) return BsonValue.Create((bool)value);
-            if (valueType == typeof(double)) return BsonValue.Create((double)value);
-            if (valueType == typeof(DateTimeOffset)) return BsonValue.Create(((DateTimeOffset)value).Date);
-            if (valueType == typeof(DateTime)) return BsonValue.Create((DateTime)value);
-
-            return BsonValue.Create(value.ToString());
+            return BsonValue.Create(bsonDict);
         }
+
+        if (propertyValue is SequenceValue seq)
+        {
+            var bsonList = new List<BsonValue>();
+            foreach (var value in seq.Elements)
+            {
+                bsonList.Add(value.ToBsonValue(format, formatProvider));
+            }
+
+            return BsonValue.Create(bsonList);
+        }
+
+        if (propertyValue is StructureValue str)
+        {
+            return BsonValue.Create(str.ToString(format, formatProvider));
+        }
+
+        return BsonValue.Create(null);
+    }
+
+    private static BsonValue ConvertScalar(object? value)
+    {
+        if (value is null) return BsonValue.Create(null);
+
+        var valueType = value.GetType();
+
+        if (valueType == typeof(string)) return BsonValue.Create((string)value);
+        if (valueType == typeof(byte[])) return BsonValue.Create((byte[])value);
+        if (valueType == typeof(int)) return BsonValue.Create((int)value);
+        if (valueType == typeof(long)) return BsonValue.Create((long)value);
+        if (valueType == typeof(bool)) return BsonValue.Create((bool)value);
+        if (valueType == typeof(double)) return BsonValue.Create((double)value);
+        if (valueType == typeof(DateTimeOffset)) return BsonValue.Create(((DateTimeOffset)value).Date);
+        if (valueType == typeof(DateTime)) return BsonValue.Create((DateTime)value);
+
+        return BsonValue.Create(value.ToString());
     }
 }
