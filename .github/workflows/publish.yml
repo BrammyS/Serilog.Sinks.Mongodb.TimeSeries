@@ -32,7 +32,7 @@ jobs:
         run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
 
       - name: Pack Serilog.Sinks.Mongodb.TimeSeries
-        run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+        run: dotnet pack ./src/Serilog.Sinks.Mongodb.TimeSeries --configuration Release /p:Version=${VERSION} --no-build --output .
 
       - name: Push Serilog.Sinks.Mongodb.TimeSeries github
         run: dotnet nuget push Serilog.Sinks.Mongodb.TimeSeries.${VERSION}.nupkg --source https://nuget.pkg.github.com/brammys/index.json --api-key ${{ secrets.PAT }} --skip-duplicate
