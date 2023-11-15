@@ -65,7 +65,7 @@ It is super simple to setup! There are only a couple lines needed. Head down to 
 
 ### Built With
 
-* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+* [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0)
 * [Serilog](https://github.com/serilog/serilog)
 * [Mongodb](https://github.com/mongodb/mongo)
 
@@ -78,7 +78,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+* [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ### Installation
 
