@@ -10,7 +10,7 @@
     <ItemGroup>
         <PackageReference Include="IsExternalInit.System.Runtime.CompilerServices" Version="1.0.0"/>
         <PackageReference Include="MongoDB.Driver" Version="2.25.0"/>
-        <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="4.1.0"/>
+        <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="4.1.1"/>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
     </ItemGroup>
 
