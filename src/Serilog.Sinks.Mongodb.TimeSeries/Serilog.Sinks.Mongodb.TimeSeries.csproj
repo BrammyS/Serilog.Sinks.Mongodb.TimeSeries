@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="IsExternalInit.System.Runtime.CompilerServices" Version="1.0.0"/>
-        <PackageReference Include="MongoDB.Driver" Version="3.0.0"/>
+        <PackageReference Include="MongoDB.Driver" Version="3.2.1"/>
         <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0"/>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
     </ItemGroup>
@@ -17,7 +17,7 @@
     <PropertyGroup>
         <Title>Serilog.Sinks.Mongodb.TimeSeries</Title>
         <Authors>BrammyS</Authors>
-        <Copyright>BrammyS 2021</Copyright>
+        <Copyright>BrammyS</Copyright>
         <Description>A sink for Serilog that saves logs in a MongoDb time series collection.</Description>
 
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
