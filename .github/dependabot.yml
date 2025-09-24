@@ -27,6 +27,3 @@ updates:
       nuget-deps:
         patterns:
           - "*"
-
-reviewers:
-  - BrammyS
