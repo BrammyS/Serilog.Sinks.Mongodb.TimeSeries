@@ -1,11 +1,3 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![NuGet][nuget-version-shield]][package-url]
 [![NuGet][nuget-downloads-shield]][package-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -18,21 +10,21 @@
 <br />
 <p align="center">
   <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries">
-    <img src="https://cdn.brammys.com/file/brammys/img/potable-water_1f6b0.png" alt="Logo" width="120" height="120">
+    <img src="https://cdn.brammys.com/potable-water.png" alt="Logo" width="120" height="120">
   </a>
+</p>
 
-  <h3 align="center">Serilog.Sinks.Mongodb.TimeSeries</h3>
+<h3 align="center">Serilog.Sinks.Mongodb.TimeSeries</h3>
 
-  <p align="center">
-    A simple to use sink for Serilog that saves logs in a Mongodb time series collection.
-    <br />
-    <a href="https://sinks-mongodb-timeseries.brammys.com/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Request Feature</a>
-  </p>
+<p align="center">
+  A simple to use sink for Serilog that saves logs in a Mongodb time series collection.
+  <br />
+  <a href="https://sinks-mongodb-timeseries.brammys.com/"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries/issues">Request Feature</a>
 </p>
 
 
@@ -73,7 +65,7 @@ It is super simple to setup! There are only a couple lines needed. Head down to 
 
 ### Built With
 
-* [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [.NET 10](https://dotnet.microsoft.com/download/dotnet/10.0)
 * [Serilog](https://github.com/serilog/serilog)
 * [Mongodb](https://github.com/mongodb/mongo)
 
@@ -86,7 +78,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* [.NET 5](https://dotnet.microsoft.com/download/dotnet/5.0)
+* [.NET 10](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 ### Installation
 
@@ -100,7 +92,7 @@ Serilog.Sinks.Mongodb.TimeSeries is available on [NuGet](Serilog.Sinks.Mongodb.T
   Install-Package Serilog.Sinks.Mongodb.TimeSeries
   ```
 
-  OR
+OR
 
   ```powershell
   dotnet add package Serilog.Sinks.Mongodb.TimeSeries
@@ -171,7 +163,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Versioning
 
-Color-Chan.Discord uses [Semantic Versioning 2.0.0](https://semver.org/#semantic-versioning-200) for its versioning.
+Serilog.Sinks.Mongodb.TimeSeries uses [Semantic Versioning 2.0.0](https://semver.org/#semantic-versioning-200) for its versioning.
 
 
 ### Summary
